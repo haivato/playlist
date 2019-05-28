@@ -22,10 +22,11 @@ class ModelVideo {
             print(json)
             if json != nil {
                 let items = json["items"] as! NSArray
-                var videoobject : Video = Video()
                 var mangtemp: [Video] = [Video]()
                 for i in items {
-                    let snippet = (i as AnyObject).value(forKey: "snippet") as! [String:Any]
+                    var videoobject : Video = Video()
+                    let snippet: NSDictionary = (i as! NSDictionary).value(forKey: "snippet") as! NSDictionary
+                    print(snippet)
                     let des = snippet["description"] as! String
                     let resourceId = snippet["resourceId"] as! [String:Any]
                     let videoId = resourceId["videoId"] as! String
@@ -38,6 +39,9 @@ class ModelVideo {
                     videoobject.videothumbnail = url
                     videoobject.videotitle = title
                     mangtemp.append(videoobject)
+                    for i in 0...mangtemp.count - 1{
+                        print(mangtemp[i].videoid)
+                    }
                 }
                 self.mangvideo = mangtemp
                 if self.delegate != nil {
