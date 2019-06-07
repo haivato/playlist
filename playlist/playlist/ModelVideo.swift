@@ -26,7 +26,6 @@ class ModelVideo {
                 for i in items {
                     var videoobject : Video = Video()
                     let snippet: NSDictionary = (i as! NSDictionary).value(forKey: "snippet") as! NSDictionary
-                    print(snippet)
                     let des = snippet["description"] as! String
                     let resourceId = snippet["resourceId"] as! [String:Any]
                     let videoId = resourceId["videoId"] as! String
