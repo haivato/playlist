@@ -40,6 +40,8 @@ class ModelVideo {
                     mangtemp.append(videoobject)
                     for i in 0...mangtemp.count - 1{
                         print(mangtemp[i].videoid)
+                        print(mangtemp[i].videoid)
+
                     }
                 }
                 self.mangvideo = mangtemp
